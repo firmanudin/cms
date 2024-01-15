@@ -153,7 +153,6 @@ class AdminController extends Controller
             'confirm_password' => 'required_with:old_password,new_password'
         ]);
 
-        // Check the old password
         if ($request->old_password) {
             if (!Hash::check($request->old_password, $d->password)) {
                 return redirect('author/profile/' . $id)->with('status', 'Old password does not match !');
